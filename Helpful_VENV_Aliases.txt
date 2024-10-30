@@ -1,0 +1,34 @@
+Helpful BASH terminal aliases to make working with Python virtual environments much easier
+2024-10-30
+Jds
+
+
+Try adding these simple aliases to your .profile (I have mine setup in a file called .bash_aliases).
+They all assume the use of a folder named .venvs in your home directory. 
+All venvs will be created and kept in this folder.
+
+
+-------------------------------------------------------------------
+USE
+-------------------------------------------------------------------
+show-envs       -- Shows a list of available environments
+open-env NAME   -- Opens the given environment
+close-env       -- Closed the currently open environment
+make-env NAME   -- Makes a new environment with the given name
+
+
+
+-------------------------------------------------------------------
+ALIASES TO ADD
+-------------------------------------------------------------------
+alias show-envs="ls -al ~/.venvs"
+
+open-env(){
+    source ~/.venvs/"$1"/bin/activate
+}
+
+alias close-env="deactivate"
+
+make-env(){
+    python3 -m venv ~/.venvs/"$1"
+}
